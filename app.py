@@ -49,7 +49,7 @@ model.AuxLogits.fc = torch.nn.Linear(768, num_classes)
 model.fc = torch.nn.Linear(2048, num_classes)
 
 # Load the trained model
-model.load_state_dict(torch.load('trained_model_compressed.h5', compile=False))
+model.load_state_dict(torch.load('trained_model_compressed.h5', map_location=torch.device('cpu')))
 model.eval()
 
 # Streamlit app
